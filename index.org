@@ -1,0 +1,76 @@
+# -*- org-html-doctype: "html5"; -*-
+#+TITLE: system homepage website
+#+OPTIONS: html5-fancy:t tasks:nil f:t
+#+HTML_HEAD: <link href="css/styles.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+#+AUTHOR: Daniel Szmulewicz
+#+EMAIL: mailto:daniel.szmulewicz@gmail.com
+
+#+LINK: gh    https://github.com/
+#+LINK: google    http://www.google.com/search?q=%s
+
+* Installation
+Add the following to your project’s dependencies.
+
+[[http://clojars.org/org.danielsz/system/latest-version.svg]]
+
+* Quickstart
+#+BEGIN_SRC clojure
+(ns user
+  (:require [system.repl :refer [system set-init! start stop reset]]
+            [my-app.systems :refer [dev-system]]))
+
+(set-init! #'dev-system)
+#+END_SRC
+* Introduction
+*system* owes to [[https://github.com/stuartsierra/component][component]] both in spirit and in name. The component library helps implement the reloaded pattern as championed by Stuart Sierra. *system* is built on top of it, offering a set of readymade components.
+* Duct
+* Live reloading
+* Components
+The following components are available
+- [[https://github.com/ring-clojure/ring][Jetty]] (HTTP server)
+- [[http://http-kit.org/][HTTP kit]] (Async HTTP server)
+- [[https://github.com/ztellman/aleph][aleph]] (Async HTTP server)
+- [[http://immutant.org/][Immutant Web]] (Web component in application server suite)
+- [[http://www.datomic.com/][Datomic]] (Immutable database)
+- [[http://docs.caudate.me/adi/][Adi]] (Datomic interface)
+- [[http://www.h2database.com/][H2]] (H2 relational database)
+- [[http://www.postgresql.org][PostgreSQL]] (SQL Database)
+- [[http://clojuremongodb.info/][Monger]] (MongoDB client)
+- [[http://clojureneo4j.info/][Neo4j]] (Graph database)
+- [[http://clojurequartz.info/][Quartzite]] (Quartz Scheduler)
+- [[https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ScheduledExecutorService.html][ScheduledExecutorService]] (Java scheduler)
+- [[https://github.com/ptaoussanis/sente][Sente]] (Websockets/Ajax communications library)
+- [[https://github.com/clojure/tools.nrepl][nREPL]] (Clojure network REPL )
+- [[https://github.com/clojure-emacs/cider-nrepl][Cider nREPL]] (A collection of nREPL middleware designed to enhance CIDER)
+- [[http://clojurerabbitmq.info/][Langohr]] (RabbitMQ client)
+- [[https://github.com/danielsz/etsy-clojure-api][Etsy]] (Etsy client)
+- [[http://docs.caudate.me/hara/#haraiowatch][hara.io.watch]] (File watcher)
+- [[http://docs.caudate.me/hara/hara-io-scheduler.html][hara.io.scheduler]] (Cron-like scheduler)
+- [[https://www.elastic.co/][Elasticsearch]] (Elasticsearch full-text search engine)
+- [[https://github.com/weavejester/duct][Duct-style]] components for Ring applications
+- [[https://github.com/tomekw/hikari-cp][Hikari CP]] (JDBC connection pool)
+- [[https://github.com/ptaoussanis/carmine][Carmine]] (Redis PubSub)
+- [[https://github.com/replikativ/konserve][Konserve]] (Document store protocol)
+* Examples
+Example projects are available under the [[https://github.com/danielsz/system/tree/master/examples][examples]] folder.
+
+** Get-started projects
+
+Two minimal projects that will help you get started. Both the [[https://github.com/danielsz/system/tree/master/examples/leiningen][Leiningen]] and [[https://github.com/danielsz/system/tree/master/examples/boot][Boot]] toolchain are covered.
+
+** Real-world web service
+
+A web service written multiple times using different styles.
+
+- System map is accessed directly. https://github.com/danielsz/system-advanced-example
+- Dependency injection, Duct abstractions and other known techniques. https://github.com/danielsz/system-dependency-injection
+
+** Websockets
+
+A web application with client-side UI. Demonstrates login procedure with Sente (a realtime web comms library).  
+
+- https://github.com/danielsz/system-websockets
+ 
+* TODO Design
+* API
