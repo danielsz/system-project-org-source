@@ -1,4 +1,4 @@
-p {font-family: 'Roboto Condensed', sans-serif;}
+#table-of-contents {font-family: 'Roboto Condensed', sans-serif;}
 
 @supports (display: grid) {
    #content {
