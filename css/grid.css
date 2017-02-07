@@ -1,0 +1,19 @@
+@supports (display: grid) {
+    #content {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-column-gap: 2rem;
+	grid-auto-flow: column;
+	justify-content: start;
+    }
+    aside {
+	grid-column: 10/-1;
+    }
+
+    section {
+	grid-column: 1/10;
+	padding-left: 2rem;
+	align-self: start;
+    }
+}
+

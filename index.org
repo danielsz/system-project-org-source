@@ -1,20 +1,28 @@
-# -*- org-html-doctype: "html5"; -*-
 #+TITLE: system homepage website
-#+OPTIONS: html5-fancy:t tasks:nil f:t
-#+HTML_HEAD: <link href="css/styles.css" rel="stylesheet" type="text/css" />
-#+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 #+AUTHOR: Daniel Szmulewicz
 #+EMAIL: mailto:daniel.szmulewicz@gmail.com
+
+#+HTML_DOCTYPE: html5
+#+OPTIONS: html5-fancy:t tasks:nil f:t num:nil title:nil toc:nil
+#+HTML_HEAD: <link href="css/typography.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/grid.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Condensed|Source+Serif+Pro|Inconsolata" rel="stylesheet">
+#+HTML_CONTAINER: section
+
+#+BEGIN_aside
+#+TOC: headlines 2
+#+END_aside
 
 #+LINK: gh    https://github.com/
 #+LINK: google    http://www.google.com/search?q=%s
 
-* Installation
+* System
+** Installation
 Add the following to your project’s dependencies.
-
-[[http://clojars.org/org.danielsz/system/latest-version.svg]]
-
-* Quickstart
+#+BEGIN_EXAMPLE
+lala
+#+END_EXAMPLE
+** Quickstart
 #+BEGIN_SRC clojure
 (ns user
   (:require [system.repl :refer [system set-init! start stop reset]]
@@ -22,11 +30,63 @@ Add the following to your project’s dependencies.
 
 (set-init! #'dev-system)
 #+END_SRC
-* Introduction
+** Introduction
 *system* owes to [[https://github.com/stuartsierra/component][component]] both in spirit and in name. The component library helps implement the reloaded pattern as championed by Stuart Sierra. *system* is built on top of it, offering a set of readymade components.
-* Duct
-* Live reloading
-* Components
+** Duct
+** Live reloading
+~System~ and ~Boot~ are a match made in heaven. Some of the properties that boot-system brings to your workflow are:
+
+- Manual and automatic mode, ie. either you manipulate the system in the REPL, or you configure it to react to editing changes.
+- Restartable system. What warrants a system restart is user-configurable. File-based granularity.
+- Changes that do not require a restart are available in the running system instantly (via namespace reloading).
+- Full /Lisp-style/ interactive programming via the REPL and hot-reloading in the browser.
+
+The ~system~ task is invoked like any ~boot~ task.
+#+BEGIN_SRC shell
+$ boot system -h
+#+END_SRC
+
+Which outputs, for example:
+
+#+BEGIN_SRC shell
+-h, --help         Print this help info.
+-s, --sys SYS      Set the system var to SYS.
+-a, --auto         Manages the lifecycle of the application automatically.
+-f, --files FILES  Will reset the system if a filename in the supplied vector changes.
+-r, --regexes      Treat --files as regexes, not file names. Only one of regexes|paths is allowed.
+-p, --paths        Treat --files as classpath paths, not file names. Only one of regexes|paths is allowed.
+#+END_SRC
+
+When ~auto~ is set to true, reloading of namespaces and restarts are being managed automatically.
+
+If you set ~auto~ to false, you indicate that you want to handle restarts manually at the REPL, with ~(system.repl/reset)~. Please note that SYS will be initialized and started for you at first run. 
+
+If you don’t supply a SYS argument, the system task will act as a ~tools.namespace~ wrapper. Each time you save your file, affected namespaces are reloaded in dependency order (after being unloaded in reverse order). This is handy for projects that do not use ~Component~, like this [[https://github.com/danielsz/no-restarts][example]] project. 
+
+*** Code reload vs system restart
+
+In traditional Lisp systems, users can redefine arbitrary, discrete units of code. Clojure, as a Lisp, is no exception. However, as a hosted language with many advanced dynamic features, code reloading has many [[https://github.com/clojure/tools.namespace#reloading-code-motivation][pitfalls]]. ~tools.namespace~ fixes many of them, but ultimately, reloaded code will not agree with runtime state, and the system will need a full restart. This is  where ~component~ fits in. (Note that both libraries were authored by Stuart Sierra).
+
+It is important to understand that code reloading and system restarts are orthogonal—both are desirable properties in a programming environment. A full restart is a blunt tool. No need to restart the database just because a helper function was modified.
+
+We *don’t want* to restart the system with *every* code change. Ideally, we want to only reload the code that has changed, and occasionally restart (when necessary).
+
+~boot-system~ gives you finegrained tuning over system restarts vs code reload. Each time you change a file, ~boot-system~ will reload your code. Conversely, filenames that have been designated in the ~files~ option will trigger a full restart. Typically, the files vector will be small, as most modifications do not warrant a full restart. An example of when you would want a full restart is when you modify a Var that is used in a thread (that of a web server, for example). This is explained in detail in the [[http://danielsz.github.io/2016/05/06/Ghosts-in-the-machine][Ghosts in the machine]] blog post. 
+Check the options with ~boot system -h~. 
+
+In summary, when you instruct ~boot-system~ to manage your application lifecycle (with the ~auto~ option), either one of those two things will happen after you change a source file:
+- ~refresh~ will first unload all affected namespaces (to remove old definitions) before reloading them in dependency order.
+- ~reset~ will restart the system if that file was defined in the ~files~ vector.
+
+*** The Holy Grail
+
+With ~system~, you can enjoy a true Lisp environment where code is always live (*live coding*). A [[https://github.com/danielsz/holygrail][tutorial]] is available in a separate repository.
+
+*** Leiningen
+
+If you are using Leiningen, we recommend [[https://github.com/bhauman/lein-figwheel][Figwheel]] to address browser-side hot-reloading concerns.
+
+** Components
 The following components are available
 - [[https://github.com/ring-clojure/ring][Jetty]] (HTTP server)
 - [[http://http-kit.org/][HTTP kit]] (Async HTTP server)
@@ -52,25 +112,26 @@ The following components are available
 - [[https://github.com/tomekw/hikari-cp][Hikari CP]] (JDBC connection pool)
 - [[https://github.com/ptaoussanis/carmine][Carmine]] (Redis PubSub)
 - [[https://github.com/replikativ/konserve][Konserve]] (Document store protocol)
-* Examples
+** Examples
 Example projects are available under the [[https://github.com/danielsz/system/tree/master/examples][examples]] folder.
 
-** Get-started projects
+*** Get-started projects
 
 Two minimal projects that will help you get started. Both the [[https://github.com/danielsz/system/tree/master/examples/leiningen][Leiningen]] and [[https://github.com/danielsz/system/tree/master/examples/boot][Boot]] toolchain are covered.
 
-** Real-world web service
+*** Real-world web service
 
 A web service written multiple times using different styles.
 
 - System map is accessed directly. https://github.com/danielsz/system-advanced-example
 - Dependency injection, Duct abstractions and other known techniques. https://github.com/danielsz/system-dependency-injection
 
-** Websockets
+*** Websockets
 
 A web application with client-side UI. Demonstrates login procedure with Sente (a realtime web comms library).  
 
 - https://github.com/danielsz/system-websockets
  
-* TODO Design
-* API
+** TODO Design
+** API
+

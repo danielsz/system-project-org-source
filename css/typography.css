@@ -1,0 +1,30 @@
+#table-of-contents {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#table-of-contents li {
+    font-size: 1.5rem;
+}
+
+p, .outline-2 li {
+    font-family: 'Source Serif Pro', serif;
+    line-height: 135%;
+    font-size: 1.5em;
+}
+
+pre {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+
+
