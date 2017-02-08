@@ -25,7 +25,7 @@ lala
 ** Quickstart
 #+BEGIN_SRC clojure
 (ns user
-  (:require [system.repl :refer [system set-init! start stop reset]]
+  (:require [system.repl :refer [system set-init! reset]]
             [my-app.systems :refer [dev-system]]))
 
 (set-init! #'dev-system)
@@ -33,6 +33,18 @@ lala
 ** Introduction
 *system* owes to [[https://github.com/stuartsierra/component][component]] both in spirit and in name. The component library helps implement the reloaded pattern as championed by Stuart Sierra. *system* is built on top of it, offering a set of readymade components.
 ** Duct
+The Duct components, an idea that originated with James Reeves, are an
+abstraction on top of the Ring architecture. It revolves around a
+handler, endpoints and middleware. Compojure gave us means to route
+http requests, Duct builds on that work and allows us to group routes
+by purpose, exposing them to the dependencies they need.
+
+The endpoints are in fact closures on top of routes with the
+dependencies available in lexical scope. The middleware
+components optionally receive dependencies as argument. [fn:1]
+
+[fn:1] At this point, this is true only for system’s
+implementation of Duct.
 ** Live reloading
 ~System~ and ~Boot~ are a match made in heaven. Some of the properties that boot-system brings to your workflow are:
 
