@@ -1,11 +1,23 @@
 @supports (display: grid) {
-    .grid {
-	display: grid;
-	grid-template-columns: 1fr;
+
+    section {
+	grid-area: content;
+    }
+    
+    aside {
+	grid-area: sidebar;
+	display: none;
     }
 
-    aside {
-	display: none;
+    #footnotes {
+	grid-area: footnotes;
+    }
+
+    #content {
+	display: grid;
+	grid-row-gap: 2em;
+	grid-template-areas: "content" "sidebar" "footnotes";						   
+	grid-auto-flow: row;
     }
     
     pre {
@@ -18,25 +30,12 @@
 
     @media screen and (min-width: 1072px) {
 	#content {
-	    display: grid;
-	    grid-template-columns: repeat(12, 1fr);
-	    grid-column-gap: 2rem;
-	    grid-auto-flow: row;
+	    grid-template-columns: 1fr 6fr 3fr;
+	    grid-column-gap: 2em;
+	    grid-template-areas: ". content   sidebar"
+				 ". footnotes .      "
 	}
-	aside {
-	    display: unset;
-	    grid-column: 10/-1;
-	}
-
-	section {
-	    grid-row-start: 1;
-	    grid-column: 3 / 9;
-	    padding-left: 2rem;
-	}
-
-	#footnotes {
-	    grid-column: 3 / 9;
-	}
+	aside { display: unset;}
     }
 }
 
