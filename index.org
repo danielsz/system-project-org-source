@@ -3,27 +3,22 @@
 #+EMAIL: mailto:daniel.szmulewicz@gmail.com
 
 #+HTML_DOCTYPE: html5
-#+OPTIONS: html5-fancy:t tasks:nil f:t num:nil title:nil toc:nil html-postamble:nil
+#+OPTIONS: html5-fancy:t tasks:nil f:t num:nil title:nil html-postamble:nil toc:1 -:t
 #+HTML_HEAD: <link href="css/typography.css" rel="stylesheet" type="text/css" />
-#+HTML_HEAD: <link href="css/grid2.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/grid3.css" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Condensed|Source+Serif+Pro|Inconsolata" rel="stylesheet">
 #+HTML_HEAD: <script src="main.js" type="text/javascript"></script>
-#+HTML_CONTAINER: section
-
-#+BEGIN_aside
-#+TOC: headlines 2
-#+END_aside
+#+HTML_CONTAINER: article
 
 #+LINK: gh    https://github.com/
 #+LINK: google    http://www.google.com/search?q=%s
 
-* System
-** Installation
+* Installation
 Add the following to your project’s dependencies.
 #+BEGIN_EXAMPLE
 lala
 #+END_EXAMPLE
-** Quickstart
+* Quickstart
 #+BEGIN_SRC clojure
 (ns user
   (:require [system.repl :refer [system set-init! reset]]
@@ -31,9 +26,9 @@ lala
 
 (set-init! #'dev-system)
 #+END_SRC
-** Introduction
+* Introduction
 *system* owes to [[https://github.com/stuartsierra/component][component]] both in spirit and in name. The component library helps implement the reloaded pattern as championed by Stuart Sierra. *system* is built on top of it, offering a set of readymade components.
-** Duct
+* Duct
 The Duct components, an idea that originated with James Reeves, are an
 abstraction on top of the Ring architecture. It revolves around a
 handler, endpoints and middleware. Compojure gave us means to route
@@ -46,7 +41,7 @@ components optionally receive dependencies as argument. [fn:1]
 
 [fn:1] At this point, this is true only for system’s
 implementation of Duct.
-** Live reloading
+* Live reloading
 ~System~ and ~Boot~ are a match made in heaven. Some of the properties that boot-system brings to your workflow are:
 
 - Manual and automatic mode, ie. either you manipulate the system in the REPL, or you configure it to react to editing changes.
@@ -99,7 +94,7 @@ With ~system~, you can enjoy a true Lisp environment where code is always live (
 
 If you are using Leiningen, we recommend [[https://github.com/bhauman/lein-figwheel][Figwheel]] to address browser-side hot-reloading concerns.
 
-** Components
+* Components
 The following components are available
 - [[https://github.com/ring-clojure/ring][Jetty]] (HTTP server)
 - [[http://http-kit.org/][HTTP kit]] (Async HTTP server)
@@ -125,26 +120,26 @@ The following components are available
 - [[https://github.com/tomekw/hikari-cp][Hikari CP]] (JDBC connection pool)
 - [[https://github.com/ptaoussanis/carmine][Carmine]] (Redis PubSub)
 - [[https://github.com/replikativ/konserve][Konserve]] (Document store protocol)
-** Examples
+* Examples
 Example projects are available under the [[https://github.com/danielsz/system/tree/master/examples][examples]] folder.
 
-*** Get-started projects
+** Get-started projects
 
 Two minimal projects that will help you get started. Both the [[https://github.com/danielsz/system/tree/master/examples/leiningen][Leiningen]] and [[https://github.com/danielsz/system/tree/master/examples/boot][Boot]] toolchain are covered.
 
-*** Real-world web service
+** Real-world web service
 
 A web service written multiple times using different styles.
 
 - System map is accessed directly. https://github.com/danielsz/system-advanced-example
 - Dependency injection, Duct abstractions and other known techniques. https://github.com/danielsz/system-dependency-injection
 
-*** Websockets
+** Websockets
 
 A web application with client-side UI. Demonstrates login procedure with Sente (a realtime web comms library).  
 
 - https://github.com/danielsz/system-websockets
  
-** TODO Design
-** API
+* TODO Design
+* API
 
