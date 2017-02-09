@@ -24,12 +24,12 @@
   "Run a restartable system in the Repl"
   []
   (comp
-   (serve :dir ".")
    (watch)
+   (serve :dir ".")
+   (reload)
    (cljs-devtools)
    (dirac)
-   (reload)
    (cljs :optimizations :none)
    (notify :visual true)
-   (repl)))
+   (repl :server true)))
 
