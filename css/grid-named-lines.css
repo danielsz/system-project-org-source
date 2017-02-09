@@ -23,7 +23,8 @@
 	}
 	#table-of-contents {
 	    display: unset;
-	    grid-column: col-c
+	    grid-column: col-c;
+	    grid-row: 1 / 5;
 	}
 	article {
 	    grid-column: col-b

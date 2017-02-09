@@ -5,7 +5,7 @@
 #+HTML_DOCTYPE: html5
 #+OPTIONS: html5-fancy:t tasks:nil f:t num:nil title:nil html-postamble:nil toc:1 -:t
 #+HTML_HEAD: <link href="css/typography.css" rel="stylesheet" type="text/css" />
-#+HTML_HEAD: <link href="css/grid3.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/grid-named-areas.css" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Condensed|Source+Serif+Pro|Inconsolata" rel="stylesheet">
 #+HTML_HEAD: <script src="main.js" type="text/javascript"></script>
 #+HTML_CONTAINER: article

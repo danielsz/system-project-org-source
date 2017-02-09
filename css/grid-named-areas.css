@@ -33,9 +33,11 @@
 	    grid-template-columns: 1fr 6fr 3fr;
 	    grid-column-gap: 2em;
 	    grid-template-areas: ". content   sidebar"
-				 ". footnotes .      "
+				 ". footnotes ."
 	}
-	aside { display: unset;}
+	aside {
+	    display: unset;
+	    grid-row: 1 / sidebar-end;
+	}
     }
 }
-

@@ -25,7 +25,8 @@
 	}
 	aside {
 	    display: unset;
-	    grid-column: 10/-1;
+	    grid-column: 10 / -1;
+	    grid-row: 1 / -1;
 	}
 
 	section {
