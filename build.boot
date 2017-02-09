@@ -6,7 +6,9 @@
                  [adzerk/boot-cljs "1.7.228-2" :scope "test"]
                  [adzerk/boot-reload "0.5.1" :scope "test"]
                  [pandeiro/boot-http "0.7.6"]
-                 [org.clojure/clojurescript "1.9.456"]])
+                 [org.clojure/clojurescript "1.9.456"]
+                 [org.danielsz/cljs-utils "0.1.0-SNAPSHOT"]
+                 [prismatic/dommy "1.1.0"]])
 
 (swap! boot.repl/*default-middleware* conj 'dirac.nrepl/middleware)
 
