@@ -18,7 +18,7 @@
 
     @media screen and (min-width: 1072px) {
 	#content {
-	    grid-template-columns: [col-a] 1fr [col-b] 6fr [col-c] 3fr;
+	    grid-template-columns: [col-a] 2fr [col-b] 6fr 1fr [col-c] 3fr;
 	    grid-column-gap: 2em;
 	}
 	#table-of-contents {

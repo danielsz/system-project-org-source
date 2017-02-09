@@ -22,7 +22,7 @@
     (set! (.. article -style -display) "none"))
   )
 
-(defn show-all-articles []
+(defn show-all-articles [_]
   (doseq [article (sel :article)]
     (set! (.. article -style -display) "initial"))
   )
@@ -38,7 +38,7 @@
 (defn attach-hover-listeners []
   (let [els (sel [:#table-of-contents :li :a])]
     (doseq [el els]
-      (dommy/listen! el :mouseover handler :mouseout (fn [e] (show-all-articles))))))
+      (dommy/listen! el :mouseenter handler :mouseleave show-all-articles :click show-all-articles))))
 
 (defn init []
   ;(hide-all-but-first-article)
