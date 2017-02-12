@@ -7,7 +7,7 @@
 #+HTML_HEAD: <link href="css/typography.css" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="css/grid-named-lines.css" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Condensed|Source+Serif+Pro|Inconsolata" rel="stylesheet">
-#+HTML_HEAD: <script src="main.js" type="text/javascript"></script>
+#+HTML_HEAD: <script src="js/main.js" type="text/javascript"></script>
 #+HTML_CONTAINER: article
 
 #+LINK: gh    https://github.com/

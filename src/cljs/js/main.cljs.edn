@@ -1,0 +1,3 @@
+{:require [org-mode.core]
+ :compiler-options {:asset-path "js/main.out"
+                    :parallel-build true}}
