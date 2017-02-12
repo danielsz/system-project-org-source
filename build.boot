@@ -20,7 +20,7 @@
 (deftask build []
   (comp
    (cljs :optimizations :advanced)
-   (target :dir #{"js"})))
+   (target :no-clean true :dir #{"."})))
 
 (deftask dev
   "Run a restartable system in the Repl"
