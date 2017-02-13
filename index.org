@@ -13,6 +13,11 @@
 #+LINK: gh    https://github.com/
 #+LINK: google    http://www.google.com/search?q=%s
 
+#+BEGIN_aside
+#+ATTR_HTML: :alt logo :width 350
+[[./images/system-logo.svg]]
+#+END_aside
+
 * Installation
 Add the following to your project’s dependencies.
 #+BEGIN_EXAMPLE

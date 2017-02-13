@@ -26,6 +26,9 @@
 	    grid-column: col-c;
 	    grid-row: 1 / 5;
 	}
+	aside {
+	    grid-column: col-a
+	}
 	article {
 	    grid-column: col-b
 	}

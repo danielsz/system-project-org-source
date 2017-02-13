@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2017-02-12 Sun 03:38 -->
+<!-- 2017-02-13 Mon 01:51 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>system homepage website</title>
@@ -234,21 +234,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge00a123">Installation</a></li>
-<li><a href="#org2503010">Quickstart</a></li>
-<li><a href="#org8482b0a">Introduction</a></li>
-<li><a href="#org8976be3">Duct</a></li>
-<li><a href="#org98d677f">Live reloading</a></li>
-<li><a href="#orga70d882">Components</a></li>
-<li><a href="#org9089911">Examples</a></li>
-<li><a href="#org3bd5a73">API</a></li>
+<li><a href="#org1e05f44">Installation</a></li>
+<li><a href="#org6847047">Quickstart</a></li>
+<li><a href="#org8c5da82">Introduction</a></li>
+<li><a href="#org5fe205a">Duct</a></li>
+<li><a href="#org2ea3b36">Live reloading</a></li>
+<li><a href="#org185622b">Components</a></li>
+<li><a href="#orgedb62d7">Examples</a></li>
+<li><a href="#orgcdd1dd4">API</a></li>
 </ul>
 </div>
 </nav>
+<aside>
 
-<article id="outline-container-orge00a123" class="outline-2">
-<h2 id="orge00a123">Installation</h2>
-<div class="outline-text-2" id="text-orge00a123">
+<figure>
+<p><object type="image/svg+xml" data="./images/system-logo.svg" class="org-svg" alt="logo" width="350">
+Sorry, your browser does not support SVG.</object>
+</p>
+</figure>
+</aside>
+
+<article id="outline-container-org1e05f44" class="outline-2">
+<h2 id="org1e05f44">Installation</h2>
+<div class="outline-text-2" id="text-org1e05f44">
 <p>
 Add the following to your project’s dependencies.
 </p>
@@ -257,9 +265,9 @@ lala
 </pre>
 </div>
 </article>
-<article id="outline-container-org2503010" class="outline-2">
-<h2 id="org2503010">Quickstart</h2>
-<div class="outline-text-2" id="text-org2503010">
+<article id="outline-container-org6847047" class="outline-2">
+<h2 id="org6847047">Quickstart</h2>
+<div class="outline-text-2" id="text-org6847047">
 <div class="org-src-container">
 <pre class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #a020f0;">ns</span> <span style="color: #228b22;">user</span>
   <span style="color: #7388d6;">(</span><span style="color: #008b8b;">:require</span> <span style="color: #909183;">[</span><span style="color: #228b22;">system.repl</span> <span style="color: #008b8b;">:refer</span> <span style="color: #709870;">[</span>system set-init! reset<span style="color: #709870;">]</span><span style="color: #909183;">]</span>
@@ -270,17 +278,17 @@ lala
 </div>
 </div>
 </article>
-<article id="outline-container-org8482b0a" class="outline-2">
-<h2 id="org8482b0a">Introduction</h2>
-<div class="outline-text-2" id="text-org8482b0a">
+<article id="outline-container-org8c5da82" class="outline-2">
+<h2 id="org8c5da82">Introduction</h2>
+<div class="outline-text-2" id="text-org8c5da82">
 <p>
 <b>system</b> owes to <a href="https://github.com/stuartsierra/component">component</a> both in spirit and in name. The component library helps implement the reloaded pattern as championed by Stuart Sierra. <b>system</b> is built on top of it, offering a set of readymade components.
 </p>
 </div>
 </article>
-<article id="outline-container-org8976be3" class="outline-2">
-<h2 id="org8976be3">Duct</h2>
-<div class="outline-text-2" id="text-org8976be3">
+<article id="outline-container-org5fe205a" class="outline-2">
+<h2 id="org5fe205a">Duct</h2>
+<div class="outline-text-2" id="text-org5fe205a">
 <p>
 The Duct components, an idea that originated with James Reeves, are an
 abstraction on top of the Ring architecture. It revolves around a
@@ -296,9 +304,9 @@ components optionally receive dependencies as argument. <sup><a id="fnr.1" class
 </p>
 </div>
 </article>
-<article id="outline-container-org98d677f" class="outline-2">
-<h2 id="org98d677f">Live reloading</h2>
-<div class="outline-text-2" id="text-org98d677f">
+<article id="outline-container-org2ea3b36" class="outline-2">
+<h2 id="org2ea3b36">Live reloading</h2>
+<div class="outline-text-2" id="text-org2ea3b36">
 <p>
 <code>System</code> and <code>Boot</code> are a match made in heaven. Some of the properties that boot-system brings to your workflow are:
 </p>
@@ -345,9 +353,9 @@ If you don’t supply a SYS argument, the system task will act as a <code>tools.
 </p>
 </div>
 
-<div id="outline-container-orgc29a0ba" class="outline-4">
-<h4 id="orgc29a0ba">Code reload vs system restart</h4>
-<div class="outline-text-4" id="text-orgc29a0ba">
+<div id="outline-container-orga2efa9b" class="outline-4">
+<h4 id="orga2efa9b">Code reload vs system restart</h4>
+<div class="outline-text-4" id="text-orga2efa9b">
 <p>
 In traditional Lisp systems, users can redefine arbitrary, discrete units of code. Clojure, as a Lisp, is no exception. However, as a hosted language with many advanced dynamic features, code reloading has many <a href="https://github.com/clojure/tools.namespace#reloading-code-motivation">pitfalls</a>. <code>tools.namespace</code> fixes many of them, but ultimately, reloaded code will not agree with runtime state, and the system will need a full restart. This is  where <code>component</code> fits in. (Note that both libraries were authored by Stuart Sierra).
 </p>
@@ -375,18 +383,18 @@ In summary, when you instruct <code>boot-system</code> to manage your applicatio
 </div>
 </div>
 
-<div id="outline-container-org4b682f2" class="outline-4">
-<h4 id="org4b682f2">The Holy Grail</h4>
-<div class="outline-text-4" id="text-org4b682f2">
+<div id="outline-container-orgb32a5f1" class="outline-4">
+<h4 id="orgb32a5f1">The Holy Grail</h4>
+<div class="outline-text-4" id="text-orgb32a5f1">
 <p>
 With <code>system</code>, you can enjoy a true Lisp environment where code is always live (<b>live coding</b>). A <a href="https://github.com/danielsz/holygrail">tutorial</a> is available in a separate repository.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org56163f7" class="outline-4">
-<h4 id="org56163f7">Leiningen</h4>
-<div class="outline-text-4" id="text-org56163f7">
+<div id="outline-container-orgc5784cb" class="outline-4">
+<h4 id="orgc5784cb">Leiningen</h4>
+<div class="outline-text-4" id="text-orgc5784cb">
 <p>
 If you are using Leiningen, we recommend <a href="https://github.com/bhauman/lein-figwheel">Figwheel</a> to address browser-side hot-reloading concerns.
 </p>
@@ -394,9 +402,9 @@ If you are using Leiningen, we recommend <a href="https://github.com/bhauman/lei
 </div>
 </article>
 
-<article id="outline-container-orga70d882" class="outline-2">
-<h2 id="orga70d882">Components</h2>
-<div class="outline-text-2" id="text-orga70d882">
+<article id="outline-container-org185622b" class="outline-2">
+<h2 id="org185622b">Components</h2>
+<div class="outline-text-2" id="text-org185622b">
 <p>
 The following components are available
 </p>
@@ -428,26 +436,26 @@ The following components are available
 </ul>
 </div>
 </article>
-<article id="outline-container-org9089911" class="outline-2">
-<h2 id="org9089911">Examples</h2>
-<div class="outline-text-2" id="text-org9089911">
+<article id="outline-container-orgedb62d7" class="outline-2">
+<h2 id="orgedb62d7">Examples</h2>
+<div class="outline-text-2" id="text-orgedb62d7">
 <p>
 Example projects are available under the <a href="https://github.com/danielsz/system/tree/master/examples">examples</a> folder.
 </p>
 </div>
 
-<div id="outline-container-orgca59b35" class="outline-3">
-<h3 id="orgca59b35">Get-started projects</h3>
-<div class="outline-text-3" id="text-orgca59b35">
+<div id="outline-container-orgb8fc195" class="outline-3">
+<h3 id="orgb8fc195">Get-started projects</h3>
+<div class="outline-text-3" id="text-orgb8fc195">
 <p>
 Two minimal projects that will help you get started. Both the <a href="https://github.com/danielsz/system/tree/master/examples/leiningen">Leiningen</a> and <a href="https://github.com/danielsz/system/tree/master/examples/boot">Boot</a> toolchain are covered.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org88ef682" class="outline-3">
-<h3 id="org88ef682">Real-world web service</h3>
-<div class="outline-text-3" id="text-org88ef682">
+<div id="outline-container-org4efc499" class="outline-3">
+<h3 id="org4efc499">Real-world web service</h3>
+<div class="outline-text-3" id="text-org4efc499">
 <p>
 A web service written multiple times using different styles.
 </p>
@@ -459,9 +467,9 @@ A web service written multiple times using different styles.
 </div>
 </div>
 
-<div id="outline-container-org1916475" class="outline-3">
-<h3 id="org1916475">Websockets</h3>
-<div class="outline-text-3" id="text-org1916475">
+<div id="outline-container-orgb870c91" class="outline-3">
+<h3 id="orgb870c91">Websockets</h3>
+<div class="outline-text-3" id="text-orgb870c91">
 <p>
 A web application with client-side UI. Demonstrates login procedure with Sente (a realtime web comms library).  
 </p>
@@ -473,8 +481,8 @@ A web application with client-side UI. Demonstrates login procedure with Sente (
 </div>
 </article>
 
-<article id="outline-container-org3bd5a73" class="outline-2">
-<h2 id="org3bd5a73">API</h2>
+<article id="outline-container-orgcdd1dd4" class="outline-2">
+<h2 id="orgcdd1dd4">API</h2>
 </article>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
