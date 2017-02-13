@@ -18,7 +18,7 @@
 
     @media screen and (min-width: 1072px) {
 	#content {
-	    grid-template-columns: [col-a] 2fr [col-b] 6fr 1fr [col-c] 3fr;
+	    grid-template-columns: [col-a] 2fr 1fr [col-b] 8fr 1fr [col-c] 3fr;
 	    grid-column-gap: 2em;
 	}
 	#table-of-contents {
@@ -27,7 +27,9 @@
 	    grid-row: 1 / 5;
 	}
 	aside {
-	    grid-column: col-a
+	    grid-column: col-a;
+	    grid-row: 1 / 5;
+	    align-self: start;
 	}
 	article {
 	    grid-column: col-b
